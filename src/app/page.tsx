@@ -1,65 +1,67 @@
-import Image from "next/image";
+import NavBar from "@/components/navbar";
+import SkillsCarousel from "@/components/skillscarousel";
+import { FaArrowRight } from "react-icons/fa";
+import FeaturedProjects from "@/components/projetos-destaque";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <header className="min-h-screen flex items-center justify-center pt-32 pb-10" id="home">
+        <div id="section-welcome" className="container mx-auto px-4">
+          <div className="flex flex-col items-center gap-6 text-center">
+            <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+              Samela Farias | 
+              <span className="bg-gradient-to-r from-[#DDB7FF] to-[#4CD7F6] bg-clip-text text-transparent block md:inline">
+                {" "}Dev Front-end
+              </span>
+            </h1>
+
+            <p className="text-gray-400 max-w-2xl text-sm md:text-lg leading-relaxed">
+              Especialista em construir experiências digitais de alta performance, 
+              acessíveis e visualmente impactantes usando tecnologias modernas.
+            </p>
+
+            <a 
+              href="projects" 
+              className="mt-4 px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#A855F7] to-[#3b82f6] font-bold inline-flex gap-2 items-center rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] active:scale-95 text-sm md:text-base"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Conheça meus projetos <FaArrowRight />
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      <main id="section2" className="py-20">
+        <div className="container mx-auto px-4">
+          <div id="skills" className="flex flex-col items-center mb-12">
+            <h1 className="text-2xl md:text-4xl font-bold text-white text-center">
+              Minhas <span className="text-[#A855F7]">Habilidades</span>
+            </h1>
+            <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-[#A855F7] to-[#3b82f6] mt-4 rounded-full"></div>
+          </div>
+          
+          <SkillsCarousel />
+        </div>
+
+        <div className="py-20">
+          <div className="container mx-auto px-4 md:px-10 lg:px-18">
+            <h1 className="text-2xl md:text-4xl font-bold text-white">
+              Projetos <span className="text-[#9ee6f7]"> em </span>
+              <span className="text-[#4CD7F6]">Destaque</span>
+            </h1>
+            
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-4 mb-10">
+              <p className="text-gray-400 max-w-2xl text-sm md:text-lg leading-relaxed mt-4">
+                Veja meus projetos do momento que estão em destaque:
+              </p>
+              <a href="projects" className="text-gray-400 text-sm md:text-lg inline-flex items-center gap-2 hover:text-[#A855F7] transition-colors mt-2 md:mt-4">
+                Ver mais projetos <FaArrowRight />
+              </a>
+            </div>
+              <FeaturedProjects />
+          </div>
         </div>
       </main>
-    </div>
+    </>
   );
 }
