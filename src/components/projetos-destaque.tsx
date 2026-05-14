@@ -139,7 +139,7 @@ export default function FeaturedProjects() {
                 target="_blank"
                 className="mt-8 w-full bg-gradient-to-r from-[#A855F7] to-[#3b82f6] text-white py-4 rounded-2xl flex items-center justify-center gap-2 font-bold hover:scale-[1.02] transition-transform shadow-[0_10px_20px_rgba(168,85,247,0.3)]"
               >
-                <MdOutlineLink size={20} /> Live Site
+                <MdOutlineLink size={20} /> Ver projeto
               </a>
             </motion.div>
           </AnimatePresence>
