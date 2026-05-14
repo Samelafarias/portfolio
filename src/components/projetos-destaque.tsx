@@ -9,7 +9,7 @@ const projectsData = [
   {
     id: "01",
     title: "PayNet",
-    subtitle: "Gerenciador para provedores",
+    subtitle: "Gerenciador para provedores de internet",
     description: "Sistema completo para controle de assinantes e gestão financeira de provedores de internet locais.",
     image: "/f1.png",
     link: "#",
