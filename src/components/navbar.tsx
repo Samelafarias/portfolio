@@ -30,10 +30,10 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#09090B]/90 backdrop-blur-md text-white px-6 md:px-16 py-5 flex items-center justify-between font-sans border-b border-white/5">
       {/* Logo */}
-      <h1 className="text-lg md:text-xl font-bold tracking-tight z-50">
+      <h1 className="font-bold tracking-tight z-50">
         <Link href="/">
-          <span className="bg-gradient-to-r from-[#A855F7] to-[#5d97f5] bg-clip-text text-transparent text-bold text-2xl cursor-pointer">
-           &lt;  SAMELA FARIAS - DEV FRONTEND /&gt;
+          <span className="bg-gradient-to-r from-[#A855F7] to-[#5d97f5] bg-clip-text text-transparent font-bold text-base md:text-2xl cursor-pointer">
+            &lt; SAMELA FARIAS - DEV FRONTEND /&gt;
           </span>
         </Link>
       </h1>
