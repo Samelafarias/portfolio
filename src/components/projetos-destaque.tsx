@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight, FaChevronLeft, FaChevronRight, FaBolt } from "react-icons/fa";
 import { MdOutlineLink } from "react-icons/md";
@@ -13,7 +13,7 @@ const projectsData = [
     description: "Sistema completo para controle de assinantes e gestão financeira de provedores de internet locais.",
     image: "/f1.png",
     link: "#",
-    features: ["Auto Brackets", "Rankings", "Online Registration"],
+    features: ["Gestão Centralizada dos clientes", "Controle Financeiro", "Relatórios Detalhados"],
     techStack: ["React", "TypeScript", "MySQL", "Docker"]
   },
   {
@@ -23,17 +23,17 @@ const projectsData = [
     description: "Sistema moderno de gestão de atendimentos em barbearias.",
     image: "/f2.png",
     link: "#",
-    features: ["Real-time Sync", "Print System", "Admin Dashboard"],
+    features: ["Agendamento em Tempo Real", "Painel Administrativo"],
     techStack: ["NextJs", "Tailwind", "Python", "TypeScript"]
   },
-    {
+  {
     id: "03",
     title: "Gestus",
     subtitle: "Seu gerenciador de assinaturas",
     description: "Sistema moderno de gestão das suas assinaturas de streamings e afins, de modo muito mais prático.",
     image: "/f3.png",
     link: "https://github.com/Samelafarias/Gestus",
-    features: ["Real-time Sync", "Print System", "Admin Dashboard"],
+    features: ["Cronograma de Vencimentos Inteligente", "Notificações Personalizadas", "Dashboard de Gastos", "Painel de Gastos Mensais"],
     techStack: ["React Native", "TypeScript", "Expo", "Firebase"]
   }
 ];
@@ -44,6 +44,23 @@ export default function FeaturedProjects() {
 
   const nextProject = () => setIndex((prev) => (prev + 1) % projectsData.length);
   const prevProject = () => setIndex((prev) => (prev - 1 + projectsData.length) % projectsData.length);
+
+  // Efeito para transição automática APENAS no Mobile (telas menores que lg / 1024px)
+  useEffect(() => {
+    // Função para checar se a tela é mobile
+    const checkIsMobile = () => window.innerWidth < 1024;
+    
+    let interval: NodeJS.Timeout;
+
+    if (checkIsMobile()) {
+      interval = setInterval(() => {
+        nextProject();
+      }, 4000); // Muda o card a cada 4 segundos (ajuste se preferir)
+    }
+
+    // Limpa o intervalo ao desmontar o componente ou mudar de estado
+    return () => clearInterval(interval);
+  }, [index]); // Rodar novamente toda vez que o index mudar garante o reset correto do tempo
 
   return (
     <section className="py-10 container mx-auto px-4 md:px-10 lg:px-10">
@@ -110,7 +127,7 @@ export default function FeaturedProjects() {
               <div className="space-y-6 flex-1">
                 {/* Main Features */}
                 <div>
-                  <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-4">Main Features</h4>
+                  <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-4">Principais Recursos</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {project.features.map((feature) => (
                       <div key={feature} className="flex items-center gap-2 bg-white/5 border border-white/10 p-2 rounded-xl text-[11px] text-gray-300">
@@ -122,7 +139,7 @@ export default function FeaturedProjects() {
 
                 {/* Tech Stack */}
                 <div>
-                  <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-4">Tech Stack</h4>
+                  <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-4">Tecnológias Utilizadas</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
                       <span key={tech} className="px-3 py-1 bg-[#A855F7]/10 border border-[#A855F7]/30 text-[#DDB7FF] rounded-lg text-xs font-medium">
