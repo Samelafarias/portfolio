@@ -27,6 +27,14 @@ const allProjects = [
     tags: ["NextJs", "Tailwind", "Python", "TypeScript", "PWA"],
     link: "#"
   },
+      {
+    title: "Portfólio de Projetos",
+    description: "Nesse portfólio, apresento alguns de meus rpincipais projetos e das tecnológias que utilizo neles.",
+    image: "/f8.jpg",
+    category: "Web",
+    tags: ["NextJs", "Tailwind", "TypeScript"],
+    link: "#"
+  },
     {
     title: "Nexus - Gerenciador de Senhas",
     description: "Esse projeto se trata de um sistema de gerenciamento de filas por meio de geração de senhas. Tornado o processo mais simples e moderno.",
