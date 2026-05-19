@@ -29,11 +29,11 @@ const allProjects = [
   },
       {
     title: "Portfólio de Projetos",
-    description: "Nesse portfólio, apresento alguns de meus rpincipais projetos e das tecnológias que utilizo neles.",
+    description: "Nesse portfólio, apresento alguns de meus principais projetos e das tecnológias que utilizo neles.",
     image: "/f8.jpg",
     category: "Web",
     tags: ["NextJs", "Tailwind", "TypeScript"],
-    link: "#"
+    link: "https://github.com/Samelafarias/portfolio"
   },
     {
     title: "Nexus - Gerenciador de Senhas",
