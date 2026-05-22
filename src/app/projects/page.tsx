@@ -9,7 +9,7 @@ const allProjects = [
     image: "/f1.png",
     category: "Web",
     tags: ["React", "TypeScript", "MySQL", "Docker"],
-    link: "#"
+    link: "https://paynet.tec.br/"
   },
   {
     title: "Gestus - Gestor de Assinaturas",

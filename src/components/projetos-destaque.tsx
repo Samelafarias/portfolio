@@ -12,7 +12,7 @@ const projectsData = [
     subtitle: "Gerenciador para provedores de internet",
     description: "Sistema completo para controle de assinantes e gestão financeira de provedores de internet locais.",
     image: "/f1.png",
-    link: "#",
+    link: "https://paynet.tec.br/",
     features: ["Gestão Centralizada dos clientes", "Controle Financeiro", "Relatórios Detalhados"],
     techStack: ["React", "TypeScript", "MySQL", "Docker"]
   },
