@@ -46,15 +46,15 @@ export default function Home() {
         <div className="py-20">
           <div className="container mx-auto px-4 md:px-10 lg:px-18">
             <h1 className="text-2xl md:text-4xl font-bold text-white">
-              Projetos <span className="text-[#9ee6f7]"> em </span>
-              <span className="text-[#4CD7F6]">Destaque</span>
+              Projetos <span className="text-[#d3ae80]"> em </span>
+              <span className="text-[#CC9149]">Destaque</span>
             </h1>
             
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-4 mb-10">
               <p className="text-gray-400 max-w-2xl text-sm md:text-lg leading-relaxed mt-4">
                 Veja meus projetos do momento que estão em destaque:
               </p>
-              <a href="projects" className="text-gray-400 text-sm md:text-lg inline-flex items-center gap-2 hover:text-[#A855F7] transition-colors mt-2 md:mt-4">
+              <a href="projects" className="text-gray-400 text-sm md:text-lg inline-flex items-center gap-2 hover:text-[#CC9149] transition-colors mt-2 md:mt-4">
                 Ver mais projetos <FaArrowRight />
               </a>
             </div>
