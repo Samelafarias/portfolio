@@ -4,7 +4,6 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const skills = [
-  // Aqui usamos o nome da tecnologia como definido no skillicons.dev
   { name: "React", slug: "react", id: 1 },
   { name: "TypeScript", slug: "typescript", id: 2 },
   { name: "Tailwind", slug: "tailwind", id: 3 },
@@ -25,37 +24,38 @@ const skills = [
 
 export default function SkillsCarousel() {
   return (
-    <div className="w-full max-w-7xl mx-auto py-10 px-2">
+    <div className="w-full max-w-7xl mx-auto px-2">
       <Swiper
-        spaceBetween={20}
-        slidesPerView={2}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        modules={[Autoplay]}
-        breakpoints={{
-          640: { slidesPerView: 3 },
-          1024: { slidesPerView: 7 },
+        spaceBetween={12} // Espaçamento bem menor entre os cards
+        slidesPerView={"auto"} // Permite ajustar múltiplos cards pequenos automaticamente
+        loop={true} 
+        speed={6000} 
+        autoplay={{
+          delay: 0, // Movimento contínuo e sem pausas (estilo marquee)
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true, // Pausa levemente ao passar o mouse por cima
         }}
-        className="pb-10"
+        modules={[Autoplay]}
+        className="w-full py-4 linear-swiper"
       >
         {skills.map((skill) => (
-          <SwiperSlide key={skill.id}>
-            <div className="p-6 flex flex-col items-center justify-center gap-4 transition-all duration-200 
-                rounded-2xl border-2 border-transparent
-                bg-[linear-gradient(#121212,#121212),linear-gradient(to_right,#A855F7,#4CD7F6,#A855F7)]
-                [background-clip:padding-box,border-box] 
-                [background-origin:border-box]
-                hover:bg-[linear-gradient(#1a1a1a,#1a1a1a),linear-gradient(to_right,#A855F7,#4CD7F6,#A855F7)]
-              ">
-                <div className="w-20 h-20 flex items-center justify-center m-auto">
-                  <img 
-                    src={`https://skillicons.dev/icons?i=${skill.slug}`} 
-                    alt={skill.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-
-                <span className="text-gray-300 font-medium">{skill.name}</span>
-              </div>
+          <SwiperSlide key={skill.id} className="!w-auto">
+            {/* Card com tamanho compacto (quadrado com cantos bem arredondados) */}
+            <div
+              className="w-25 h-25 md:w-30 md:h-30 p-2.5 flex items-center justify-center 
+                         transition-all duration-300 rounded-2xl md:rounded-3xl border-2 
+                         border-transparent
+                         bg-[linear-gradient(#09090B,#09090B),linear-gradient(to_bottom_right,#CC9149,#3A2207)]
+                         [background-clip:padding-box,border-box] 
+                         [background-origin:border-box]
+                         hover:scale-105 cursor-pointer shadow-lg shadow-black/40"
+            >
+              <img 
+                src={`https://skillicons.dev/icons?i=${skill.slug}`} 
+                alt={skill.name}
+                className="w-18 h-18 md:w-20 md:h-20 object-contain"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

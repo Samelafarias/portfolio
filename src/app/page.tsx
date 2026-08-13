@@ -35,9 +35,9 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div id="skills" className="flex flex-col items-center mb-12">
             <h1 className="text-2xl md:text-4xl font-bold text-white text-center">
-              Minhas <span className="text-[#A855F7]">Habilidades</span>
+              Minhas Habilidades
             </h1>
-            <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-[#A855F7] to-[#3b82f6] mt-4 rounded-full"></div>
+            <div className="w-16 md:w-24 h-0.5 bg-[#CC9149] mt-4 rounded-full"></div>
           </div>
           
           <SkillsCarousel />
