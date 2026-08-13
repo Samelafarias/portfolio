@@ -1,63 +1,106 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
-import { HiMenuAlt3, HiX } from "react-icons/hi"; 
-import Link from "next/link"; 
-import { usePathname } from "next/navigation"; 
+import { HiMenuAlt3, HiX } from "react-icons/hi";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import TypewriterText from "@/components/TypewriterText";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hash, setHash] = useState("");
-  const pathname = usePathname(); 
-
-  // Escuta mudanças na URL para detectar âncoras (#contact)
-  useEffect(() => {
-    const handleHashChange = () => setHash(window.location.hash);
-    window.addEventListener("hashchange", handleHashChange);
-    // Seta o hash inicial se houver
-    setHash(window.location.hash);
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, [pathname]);
+  const [activeSection, setActiveSection] = useState("/");
+  const pathname = usePathname();
 
   const navLinks = [
     { id: "/", label: "Home" },
-    { id: "/about", label: "Sobre Mim" },
-    { id: "/projects", label: "Projetos" },
-    { id: "#contact", label: "Contato" }, 
+    { id: "#skills", label: "Minhas Habilidades" },
+    { id: "#about", label: "Sobre Mim" },
+    { id: "#projects", label: "Projetos" },
+    { id: "#contact", label: "Contato" },
   ];
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const currentHash = window.location.hash;
+      if (currentHash) {
+        setActiveSection(currentHash);
+      } else {
+        setActiveSection("/");
+      }
+    };
+
+    updateActiveSection();
+
+    window.addEventListener("hashchange", updateActiveSection);
+    window.addEventListener("popstate", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("hashchange", updateActiveSection);
+      window.removeEventListener("popstate", updateActiveSection);
+    };
+  }, [pathname]);
+
+  const handleLinkClick = (id: string) => {
+    setActiveSection(id);
+    setIsOpen(false);
+  };
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#09090B]/90 backdrop-blur-md text-white px-6 md:px-16 py-5 flex items-center justify-between font-sans border-b border-white/5">
+    <header className="fixed top-5 left-0 w-full z-50 flex justify-center px-4 md:px-0 pointer-events-none">
+    <nav className="pointer-events-auto w-full max-w-5xl rounded-full 
+                   bg-[#09090B]/60 backdrop-blur-xl 
+                   border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]
+                   text-white px-6 md:px-8 py-5 
+                   flex items-center justify-between font-sans 
+                   transition-all duration-300">
       {/* Logo */}
       <h1 className="font-bold tracking-tight z-50">
-        <Link href="/">
-          <span className="bg-gradient-to-r from-[#A855F7] to-[#5d97f5] bg-clip-text text-transparent font-bold text-base md:text-2xl cursor-pointer">
-            &lt; SAMELA FARIAS - DEV FRONTEND /&gt;
-          </span>
+        <Link href="/" onClick={() => handleLinkClick("/")}>
+          <div className="cursor-pointer font-bold text-base md:text-2xl">
+            <TypewriterText
+              prefix="<"
+              texts={["Samela Farias />"]}
+              color="#FFFFFF"
+              prefixColor="#FFFFFF"
+              cursorColor="#CC9149"
+              cursorWidth={4}
+              cursorHeight={24}
+              font={{
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 900,
+                fontSize: "28px",
+                letterSpacing: "-0.01em",
+                textAlign: "left",
+              }}
+              deletingSpeed={18}
+              transition={{
+                duration: 0.1,
+                delay: 15,
+              }}
+            />
+          </div>
         </Link>
       </h1>
 
       {/* Menu Desktop */}
       <ul className="hidden md:flex items-center gap-10 text-gray-400 font-medium">
         {navLinks.map((link) => {
+          const isActive = activeSection === link.id;
 
-          const isActive = link.id.includes("#") 
-            ? hash === link.id.split("/")[1] || hash === link.id
-            : pathname === link.id;
-          
           return (
             <li key={link.id} className="relative">
               <Link
                 href={link.id}
+                onClick={() => handleLinkClick(link.id)}
                 className={`transition-colors duration-300 hover:text-white ${
-                  isActive ? "text-[#a855f7]" : ""
+                  isActive ? "text-[#CC9149]" : ""
                 }`}
               >
                 {link.label}
               </Link>
               {isActive && (
-                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#a855f7] transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#CC9149] transition-all duration-300" />
               )}
             </li>
           );
@@ -65,29 +108,29 @@ const NavBar = () => {
       </ul>
 
       {/* Botão Hamburguer */}
-      <button 
-        className="md:hidden text-3xl z-50 text-[#a855f7]" 
+      <button
+        className="md:hidden text-3xl z-50 text-[#CC9149]"
         onClick={toggleMenu}
       >
         {isOpen ? <HiX /> : <HiMenuAlt3 />}
       </button>
 
       {/* Menu Mobile */}
-      <div className={`fixed top-0 left-0 w-full h-screen bg-[#09090B] flex flex-col items-center justify-center gap-8 transition-transform duration-500 ease-in-out z-40 ${
-        isOpen ? "translate-x-0" : "translate-x-full"
-      } md:hidden`}>
+      <div
+        className={`fixed top-0 left-0 w-full h-screen bg-[#09090B] flex flex-col items-center justify-center gap-8 transition-transform duration-500 ease-in-out z-40 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        } md:hidden`}
+      >
         {navLinks.map((link) => {
-          const isActive = link.id.includes("#") 
-            ? hash === link.id.split("/")[1] || hash === link.id
-            : pathname === link.id;
+          const isActive = activeSection === link.id;
 
           return (
-            <Link 
+            <Link
               key={link.id}
               href={link.id}
-              onClick={() => setIsOpen(false)}
+              onClick={() => handleLinkClick(link.id)}
               className={`text-2xl font-semibold transition-all ${
-                isActive ? "text-[#a855f7] scale-110" : "text-gray-400"
+                isActive ? "text-[#CC9149] scale-110" : "text-gray-400"
               }`}
             >
               {link.label}
@@ -96,6 +139,7 @@ const NavBar = () => {
         })}
       </div>
     </nav>
+    </header>
   );
 };
 
