@@ -26,7 +26,7 @@ const allProjects = [
     image: "/f2.png",
     category: "Web",
     tags: ["NextJs", "Tailwind", "Python", "TypeScript", "PWA"],
-    link: "https://pointdobarbeiro.com.br/cliente/servicos/point-do-barbeiro"
+    link: "#"
   },
   {
     title: "Portfólio de Projetos",
