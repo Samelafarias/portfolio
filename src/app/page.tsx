@@ -1,35 +1,126 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import NavBar from "@/components/navbar";
 import SkillsCarousel from "@/components/skillscarousel";
 import { FaArrowRight } from "react-icons/fa";
 import FeaturedProjects from "@/components/projetos-destaque";
+import { FiDownload } from "react-icons/fi";
+import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+
+const frontendRoles = [
+  "Desenvolvedora Frontend",
+  "Interfaces Web & Mobile",
+  "Design de Sistemas & UI/UX",
+  "Acessibilidade & Performance",
+];
 
 export default function Home() {
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % frontendRoles.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
-      <header className="min-h-screen flex items-center justify-center pt-32 pb-10" id="home">
-        <div id="section-welcome" className="container mx-auto px-4">
-          <div className="flex flex-col items-center gap-6 text-center">
-            <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-              Samela Farias | 
-              <span className="bg-gradient-to-r from-[#DDB7FF] to-[#4CD7F6] bg-clip-text text-transparent block md:inline">
-                {" "}Dev Front-end
+      <header className="min-h-screen flex items-center justify-center pt-16 pb-8" id="home">
+      <div id="section-welcome" className="max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+          
+          {/* COLUNA DA ESQUERDA - TEXTO E AÇÕES */}
+          <div className="flex flex-col items-start text-left gap-4">
+            
+            {/* BADGE COM ANIMAÇÃO MORPH DE TEXTO */}
+            <div className="px-5 py-1.5 rounded-full border border-[#CC9149]/40 bg-[#CC9149]/10 text-white text-md font-medium inline-flex items-center gap-2 overflow-hidden h-9 min-w-[240px]">
+              <span className="w-2 h-2 rounded-full bg-[#CC9149] animate-pulse" />
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={roleIndex}
+                  initial={{ y: 12, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -12, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="whitespace-nowrap"
+                >
+                  {frontendRoles[roleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+              Samela Farias{" "}
+              <span className="bg-gradient-to-r from-[#CC9149] to-[#9A5807] bg-clip-text text-transparent inline-block whitespace-nowrap">
+                Desenvolvedora Frontend
               </span>
             </h1>
 
-            <p className="text-gray-400 max-w-2xl text-sm md:text-lg leading-relaxed">
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-lg">
               Especialista em construir experiências digitais de alta performance, 
               acessíveis e visualmente impactantes usando tecnologias modernas.
             </p>
 
-            <a 
-              href="projects" 
-              className="mt-4 px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#A855F7] to-[#3b82f6] font-bold inline-flex gap-2 items-center rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] active:scale-95 text-sm md:text-base"
-            >
-              Conheça meus projetos <FaArrowRight />
-            </a>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="/curriculo.pdf" 
+                download
+                className="px-6 py-3 bg-gradient-to-r from-[#CC9149] to-[#9A5807] text-white font-semibold rounded-full flex items-center gap-2 hover:opacity-90 transition-all shadow-lg active:scale-95 text-sm md:text-base"
+              >
+                Baixar Currículo <FiDownload size={18} />
+              </a>
+
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://github.com/Samelafarias"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full border border-white/20 text-white hover:border-[#CC9149] hover:text-[#CC9149] transition-all bg-white/5"
+                  aria-label="GitHub"
+                >
+                  <FaGithub size={18} />
+                </a>
+
+                <a
+                  href="mailto:seuemail@exemplo.com"
+                  className="p-3 rounded-full border border-white/20 text-white hover:border-[#CC9149] hover:text-[#CC9149] transition-all bg-white/5"
+                  aria-label="Email"
+                >
+                  <FaEnvelope size={18} />
+                </a>
+
+                <a
+                  href="https://linkedin.com/in/seu-perfil"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full border border-white/20 text-white hover:border-[#CC9149] hover:text-[#CC9149] transition-all bg-white/5"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin size={18} />
+                </a>
+              </div>
+            </div>
+
           </div>
+
+          {/* COLUNA DA DIREITA - ILUSTRAÇÃO */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-lg">
+              <img
+                src="/pc-image 1.png"
+                alt="Ilustração Desenvolvedor"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+
         </div>
-      </header>
+      </div>
+    </header>
 
       <main id="section2" className="py-20">
         <div className="container mx-auto px-4">
