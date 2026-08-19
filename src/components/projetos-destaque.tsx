@@ -22,8 +22,8 @@ const projectsData = [
     subtitle: "Sistema de agendamento para barbearias",
     description: "Sistema moderno de gestão de atendimentos em barbearias.",
     image: "/f2.png",
-    link: "#",
-    features: ["Agendamento em Tempo Real", "Painel Administrativo"],
+    link: "https://pointdobarbeiro.com.br/cliente/servicos/point-do-barbeiro",
+    features: ["Agendamento em Tempo Real", "Painel Administrativo", "Versatilidade", "Acesse de Qualque Lugar, Celular ou PC"],
     techStack: ["NextJs", "Tailwind", "Python", "TypeScript"]
   },
   {
