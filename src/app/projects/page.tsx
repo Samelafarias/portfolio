@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import BackButtom from "@/components/BackButtom";
 
 const allProjects = [
   {
@@ -19,15 +20,15 @@ const allProjects = [
     tags: ["React Native", "TypeScript", "Expo", "Firebase"],
     link: "https://github.com/Samelafarias/Gestus"
   },
-    {
+  {
     title: "Point do Barbeiro",
     description: "Sistema de agendamento para barbearias, controle seus atendimentos de modo prático.",
     image: "/f2.png",
     category: "Web",
     tags: ["NextJs", "Tailwind", "Python", "TypeScript", "PWA"],
-    link: "#"
+    link: "https://pointdobarbeiro.com.br/cliente/servicos/point-do-barbeiro"
   },
-      {
+  {
     title: "Portfólio de Projetos",
     description: "Nesse portfólio, apresento alguns de meus principais projetos e das tecnológias que utilizo neles.",
     image: "/f8.jpg",
@@ -35,7 +36,7 @@ const allProjects = [
     tags: ["NextJs", "Tailwind", "TypeScript"],
     link: "https://github.com/Samelafarias/portfolio"
   },
-    {
+  {
     title: "Nexus - Gerenciador de Senhas",
     description: "Esse projeto se trata de um sistema de gerenciamento de filas por meio de geração de senhas. Tornado o processo mais simples e moderno.",
     image: "/f5.png",
@@ -72,6 +73,7 @@ export default function Projects() {
   return (
     <header className="min-h-screen pt-32 pb-10 px-4 md:px-8" id="projects">
       <div className="max-w-7xl mx-auto">
+        <BackButtom className="mb-5"/>
         <h1 className="text-5xl font-bold mb-6">Meus Projetos</h1>
         <p className="text-gray-400 max-w-2xl text-sm md:text-lg mb-10">
            Conheça meus projetos, são uma forma de construir experiências digitais de alta performance, acessíveis e visualmente impactantes usando tecnologias modernas.
@@ -85,8 +87,8 @@ export default function Projects() {
               onClick={() => setFilter(cat)}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all border ${
                 filter === cat 
-                ? "bg-[#A855F7] border-[#A855F7] text-white" 
-                : "bg-transparent border-white/20 text-gray-400 hover:border-[#A855F7]/50"
+                ? "bg-gradient-to-r from-[#CC9149] to-[#9A5807] border-[#CC9149] text-white" 
+                : "bg-transparent border-white/20 text-gray-400 hover:border-[#CC9149]/50"
               }`}
             >
               {cat}
@@ -99,7 +101,7 @@ export default function Projects() {
           {filteredProjects.map((project, index) => (
             <div 
               key={index}
-              className="flex flex-col w-full h-full transition-all duration-300 rounded-2xl border-2 border-transparent bg-[linear-gradient(#121212,#121212),linear-gradient(to_right,#A855F7,#4CD7F6,#A855F7)] [background-clip:padding-box,border-box] [background-origin:border-box] overflow-hidden hover:scale-[1.01]"
+              className="flex flex-col w-full h-full transition-all duration-300 rounded-2xl border-2 border-transparent bg-[linear-gradient(#121212,#121212),linear-gradient(to_right,#CC9149,#9A5807)] [background-clip:padding-box,border-box] [background-origin:border-box] overflow-hidden hover:scale-[1.01]"
             >
               {/* CONTAINER DA IMAGEM PADRONIZADO */}
               <div className="relative w-full aspect-video overflow-hidden border-b border-white/10">
@@ -114,7 +116,7 @@ export default function Projects() {
               <div className="p-8 flex flex-col flex-1">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map(tag => (
-                    <span key={tag} className="bg-white/5 backdrop-blur-md text-[#4CD7F6] text-[10px] font-bold px-3 py-1 rounded-full border border-[#4CD7F6]/20 uppercase">
+                    <span key={tag} className="bg-white/5 backdrop-blur-md text-[#CC9149] text-[10px] font-bold px-3 py-1 rounded-full border border-[#CC9149]/30 uppercase">
                       {tag}
                     </span>
                   ))}
@@ -131,7 +133,7 @@ export default function Projects() {
                 </p>
                 
                 <div className="flex items-center pt-4 border-t border-white/5">
-                   <a href={project.link} target="_blank" className="text-white/60 hover:text-[#4CD7F6] transition-colors flex items-center gap-2 text-sm font-medium">
+                   <a href={project.link} target="_blank" className="text-white/60 hover:text-[#CC9149] transition-colors flex items-center gap-2 text-sm font-medium">
                       Ver Projeto <FaExternalLinkAlt size={14}/>
                    </a>
                 </div>
