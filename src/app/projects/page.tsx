@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import BackButtom from "@/components/BackButtom";
 
 const allProjects = [
   {
@@ -19,7 +20,7 @@ const allProjects = [
     tags: ["React Native", "TypeScript", "Expo", "Firebase"],
     link: "https://github.com/Samelafarias/Gestus"
   },
-    {
+  {
     title: "Point do Barbeiro",
     description: "Sistema de agendamento para barbearias, controle seus atendimentos de modo prático.",
     image: "/f2.png",
@@ -27,7 +28,7 @@ const allProjects = [
     tags: ["NextJs", "Tailwind", "Python", "TypeScript", "PWA"],
     link: "#"
   },
-      {
+  {
     title: "Portfólio de Projetos",
     description: "Nesse portfólio, apresento alguns de meus principais projetos e das tecnológias que utilizo neles.",
     image: "/f8.jpg",
@@ -35,7 +36,7 @@ const allProjects = [
     tags: ["NextJs", "Tailwind", "TypeScript"],
     link: "https://github.com/Samelafarias/portfolio"
   },
-    {
+  {
     title: "Nexus - Gerenciador de Senhas",
     description: "Esse projeto se trata de um sistema de gerenciamento de filas por meio de geração de senhas. Tornado o processo mais simples e moderno.",
     image: "/f5.png",
@@ -70,23 +71,29 @@ export default function Projects() {
   );
 
   return (
-    <header className="min-h-screen pt-32 pb-10 px-4 md:px-8" id="projects">
+    <header className="min-h-screen pt-20 md:pt-32 pb-10 px-4 md:px-8" id="projects">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-5xl font-bold mb-6">Meus Projetos</h1>
-        <p className="text-gray-400 max-w-2xl text-sm md:text-lg mb-10">
-           Conheça meus projetos, são uma forma de construir experiências digitais de alta performance, acessíveis e visualmente impactantes usando tecnologias modernas.
+        <BackButtom className="mb-4 md:mb-5"/>
+        
+        {/* TÍTULOS E APRESENTAÇÃO COM FONTE ESCALÁVEL */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-white">
+          Meus Projetos
+        </h1>
+        
+        <p className="text-gray-400 max-w-2xl text-xs sm:text-sm md:text-lg mb-8 md:mb-10 leading-relaxed">
+          Conheça meus projetos, são uma forma de construir experiências digitais de alta performance, acessíveis e visualmente impactantes usando tecnologias modernas.
         </p>
 
-        {/* MENU DE FILTROS */}
-        <div className="flex flex-wrap gap-4 mb-16">
+        {/* MENU DE FILTROS - RESPONSIVO E COMPACTO NO MOBILE */}
+        <div className="flex flex-wrap gap-2 md:gap-4 mb-8 md:mb-16">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all border ${
+              className={`px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all border ${
                 filter === cat 
-                ? "bg-[#A855F7] border-[#A855F7] text-white" 
-                : "bg-transparent border-white/20 text-gray-400 hover:border-[#A855F7]/50"
+                ? "bg-linear-to-r from-[#CC9149] to-[#9A5807] border-[#CC9149] text-white" 
+                : "bg-transparent border-white/20 text-gray-400 hover:border-[#CC9149]/50"
               }`}
             >
               {cat}
@@ -94,46 +101,54 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* GRID DE PROJETOS */}
-        <main className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {/* GRID DE PROJETOS RESPONSIVO */}
+        <main className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
           {filteredProjects.map((project, index) => (
             <div 
               key={index}
-              className="flex flex-col w-full h-full transition-all duration-300 rounded-2xl border-2 border-transparent bg-[linear-gradient(#121212,#121212),linear-gradient(to_right,#A855F7,#4CD7F6,#A855F7)] [background-clip:padding-box,border-box] [background-origin:border-box] overflow-hidden hover:scale-[1.01]"
+              className="flex flex-col w-full h-full transition-all duration-300 rounded-2xl border-2 border-transparent bg-[linear-gradient(#121212,#121212),linear-gradient(to_right,#CC9149,#9A5807)] [background-clip:padding-box,border-box] bg-origin:border-box overflow-hidden hover:scale-[1.01]"
             >
               {/* CONTAINER DA IMAGEM PADRONIZADO */}
               <div className="relative w-full aspect-video overflow-hidden border-b border-white/10">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
                 />
               </div>
               
-              {/* CONTEÚDO DO CARD COM ALTURAS PADRONIZADAS */}
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex flex-wrap gap-2 mb-4">
+              {/* CONTEÚDO DO CARD ADAPTADO */}
+              <div className="p-5 md:p-8 flex flex-col flex-1">
+                <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
                   {project.tags.map(tag => (
-                    <span key={tag} className="bg-white/5 backdrop-blur-md text-[#4CD7F6] text-[10px] font-bold px-3 py-1 rounded-full border border-[#4CD7F6]/20 uppercase">
+                    <span 
+                      key={tag} 
+                      className="bg-white/5 backdrop-blur-md text-[#CC9149] text-[9px] md:text-[10px] font-bold px-2.5 md:px-3 py-0.5 md:py-1 rounded-full border border-[#CC9149]/30 uppercase"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Título com altura mínima para manter alinhamento */}
-                <h3 className="text-2xl font-bold text-white mb-3 min-h-[64px] flex items-center">
+                {/* Título adaptável */}
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">
                   {project.title}
                 </h3>
                 
-                {/* Descrição com altura mínima para manter alinhamento */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-1 min-h-[60px]">
+                {/* Descrição flexível */}
+                <p className="text-gray-400 text-xs md:text-sm leading-relaxed mb-6 flex-1">
                   {project.description}
                 </p>
                 
-                <div className="flex items-center pt-4 border-t border-white/5">
-                   <a href={project.link} target="_blank" className="text-white/60 hover:text-[#4CD7F6] transition-colors flex items-center gap-2 text-sm font-medium">
-                      Ver Projeto <FaExternalLinkAlt size={14}/>
-                   </a>
+                <div className="flex items-center pt-3 md:pt-4 border-t border-white/5 mt-auto">
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white/70 hover:text-[#CC9149] transition-colors flex items-center gap-2 text-xs md:text-sm font-medium"
+                  >
+                    Ver Projeto <FaExternalLinkAlt size={12} className="md:w-3.5 md:h-3.5" />
+                  </a>
                 </div>
               </div>
             </div>

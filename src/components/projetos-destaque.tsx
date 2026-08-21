@@ -23,7 +23,7 @@ const projectsData = [
     description: "Sistema moderno de gestão de atendimentos em barbearias.",
     image: "/f2.png",
     link: "#",
-    features: ["Agendamento em Tempo Real", "Painel Administrativo"],
+    features: ["Agendamento em Tempo Real", "Painel Administrativo", "Versatilidade", "Acesse de Qualque Lugar, Celular ou PC"],
     techStack: ["NextJs", "Tailwind", "Python", "TypeScript"]
   },
   {
@@ -63,7 +63,7 @@ export default function FeaturedProjects() {
   }, [index]); // Rodar novamente toda vez que o index mudar garante o reset correto do tempo
 
   return (
-    <section className="py-10 container mx-auto px-4 md:px-10 lg:px-10">
+    <section className="py-10 container mx-auto px-4 md:px-10 lg:px-10" id="projects">
       <div className="flex flex-col lg:flex-row gap-8 items-stretch">
         
         {/* LADO ESQUERDO: CARROSSEL DE IMAGEM */}
@@ -116,7 +116,7 @@ export default function FeaturedProjects() {
               className="flex flex-col h-full"
             >
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-4xl font-bold text-[#A855F7]/40">{project.id}</span>
+                <span className="text-4xl font-bold text-[#CC9149]">{project.id}</span>
                 <h3 className="text-2xl md:text-3xl font-bold text-white">{project.title}</h3>
               </div>
 
@@ -131,7 +131,7 @@ export default function FeaturedProjects() {
                   <div className="grid grid-cols-2 gap-3">
                     {project.features.map((feature) => (
                       <div key={feature} className="flex items-center gap-2 bg-white/5 border border-white/10 p-2 rounded-xl text-[11px] text-gray-300">
-                        <FaBolt className="text-[#A855F7] text-[10px]" /> {feature}
+                        <FaBolt className="text-[#CC9149] text-[10px]" /> {feature}
                       </div>
                     ))}
                   </div>
@@ -142,7 +142,7 @@ export default function FeaturedProjects() {
                   <h4 className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-4">Tecnológias Utilizadas</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-[#A855F7]/10 border border-[#A855F7]/30 text-[#DDB7FF] rounded-lg text-xs font-medium">
+                      <span key={tech} className="px-3 py-1 bg-[#CC9149]/10 border border-[#CC9149]/30 text-[#ffffff] rounded-lg text-xs font-medium">
                         {tech}
                       </span>
                     ))}
@@ -154,7 +154,7 @@ export default function FeaturedProjects() {
               <a
                 href={project.link}
                 target="_blank"
-                className="mt-8 w-full bg-gradient-to-r from-[#A855F7] to-[#3b82f6] text-white py-4 rounded-2xl flex items-center justify-center gap-2 font-bold hover:scale-[1.02] transition-transform shadow-[0_10px_20px_rgba(168,85,247,0.3)]"
+                className="mt-8 w-full bg-gradient-to-r from-[#CC9149] to-[#9A5807] text-white py-4 rounded-4xl flex items-center justify-center gap-2 font-bold hover:scale-[1.02] "
               >
                 <MdOutlineLink size={20} /> Ver projeto
               </a>

@@ -5,7 +5,7 @@ import { MdOutlineMail } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#09090B] text-white px-6 md:px-16 py-10 flex flex-col md:flex-row justify-between items-center gap-6 font-sans border-t border-white/5" id="contact">
+    <footer className="bg-[#18181B] text-white px-6 md:px-16 py-5 flex flex-col md:flex-row justify-between items-center gap-6 font-sans border-t border-white/5" id="contact">
       <div className="text-center md:text-left">
         <h2 className="text-lg md:text-xl font-medium tracking-tight">
           <span className="text-white">
