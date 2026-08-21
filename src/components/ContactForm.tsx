@@ -60,22 +60,19 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
 
   return (
     <div
-      className={`w-full max-w-3xl mx-auto rounded-3xl border border-white/10 bg-[#121212]/80 backdrop-blur-md p-8 md:p-12 shadow-2xl ${className}`}
+      className={`w-full max-w-3xl mx-auto rounded-3xl border border-white/10 bg-[#09090B]/90 backdrop-blur-md p-6 sm:p-8 md:p-12 shadow-2xl ${className}`}
     >
-      <div className="text-center mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+      <div className="text-center mb-6 md:mb-8">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
           Gostou do meu trabalho?{" "}
           <span className="text-[#CC9149]">Entre em contato.</span>
         </h2>
-        <p className="text-gray-400 text-sm md:text-base">
-          Disponível para novos projetos e parcerias de impacto.
-        </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="flex flex-col gap-2">
-            <label htmlFor="nome" className="text-xs font-semibold uppercase tracking-wider text-gray-300">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="nome" className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400">
               Seu Nome
             </label>
             <input
@@ -86,12 +83,12 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
               value={formData.nome}
               onChange={handleChange}
               placeholder="Seu Nome"
-              className="w-full px-4 py-3 rounded-xl bg-[#09090B] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#CC9149] transition-colors"
+              className="w-full px-4 py-3 rounded-2xl bg-[#09090B] border border-white/15 text-white text-xs sm:text-sm placeholder-gray-600 focus:outline-none focus:border-[#CC9149] transition-colors"
             />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-gray-300">
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="email" className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400">
               Seu Email
             </label>
             <input
@@ -102,13 +99,13 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
               value={formData.email}
               onChange={handleChange}
               placeholder="Seu Email"
-              className="w-full px-4 py-3 rounded-xl bg-[#09090B] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#CC9149] transition-colors"
+              className="w-full px-4 py-3 rounded-2xl bg-[#09090B] border border-white/15 text-white text-xs sm:text-sm placeholder-gray-600 focus:outline-none focus:border-[#CC9149] transition-colors"
             />
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <label htmlFor="mensagem" className="text-xs font-semibold uppercase tracking-wider text-gray-300">
+        <div className="flex flex-col gap-1.5">
+          <label htmlFor="mensagem" className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-400">
             Mensagem
           </label>
           <textarea
@@ -118,27 +115,29 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
             rows={4}
             value={formData.mensagem}
             onChange={handleChange}
-            placeholder="Conte-me mais sobre sua ideia de projeto..."
-            className="w-full px-4 py-3 rounded-xl bg-[#09090B] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#CC9149] transition-colors resize-none"
+            placeholder="Conte-me mais sobre sua ideia de projeto ..."
+            className="w-full px-4 py-3 rounded-2xl bg-[#09090B] border border-white/15 text-white text-xs sm:text-sm placeholder-gray-600 focus:outline-none focus:border-[#CC9149] transition-colors resize-none"
           />
         </div>
 
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className="mt-2 w-full py-4 rounded-xl bg-gradient-to-r from-[#CC9149] to-[#9A5807] text-white font-bold text-base transition-all hover:opacity-90 active:scale-[0.99] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {status === "loading" ? "Enviando..." : "Enviar Mensagem"}
-        </button>
+        <div className="flex justify-center mt-2">
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-linear-to-r from-[#CC9149] to-[#9A5807] text-white font-semibold text-xs sm:text-sm transition-all hover:opacity-90 active:scale-[0.99] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {status === "loading" ? "Enviando..." : "Enviar Mensagem"}
+          </button>
+        </div>
 
         {status === "success" && (
-          <p className="text-green-400 text-sm text-center font-medium mt-2">
+          <p className="text-green-400 text-xs sm:text-sm text-center font-medium mt-1">
             Mensagem enviada com sucesso! Em breve entrarei em contato.
           </p>
         )}
 
         {status === "error" && (
-          <p className="text-red-400 text-sm text-center font-medium mt-2">
+          <p className="text-red-400 text-xs sm:text-sm text-center font-medium mt-1">
             {errorMessage}
           </p>
         )}
