@@ -13,20 +13,20 @@ const allProjects = [
     link: "https://paynet.tec.br/"
   },
   {
-    title: "Gestus - Gestor de Assinaturas",
-    description: "Sistema de gerenciamento para suas assinaturas, controle seus gastos de modo prático.",
-    image: "/f3.png",
-    category: "Mobile",
-    tags: ["React Native", "TypeScript", "Expo", "Firebase"],
-    link: "https://github.com/Samelafarias/Gestus"
-  },
-  {
     title: "Point do Barbeiro",
     description: "Sistema de agendamento para barbearias, controle seus atendimentos de modo prático.",
     image: "/f2.png",
     category: "Web",
     tags: ["NextJs", "Tailwind", "Python", "TypeScript", "PWA"],
-    link: "#"
+    link: "https://pointdobarbeiro.com.br/cliente/servicos/point-do-barbeiro"
+  },
+  {
+    title: "ReciboFácil - Gerador de Recibos",
+    description: "O ReciboFácil é uma aplicação web para geração e gerenciamento de recibos mensais, feita para substituir o preenchimento manual de recibos em documentos do Word.",
+    image: "/f9.jpg",
+    category: "Web",
+    tags: ["NextJs", "Tailwind", "TypeScript", "PWA", "Python", "Django"],
+    link: "https://github.com/Samelafarias/Recibo-sistema"
   },
   {
     title: "Portfólio de Projetos",
@@ -35,6 +35,23 @@ const allProjects = [
     category: "Web",
     tags: ["NextJs", "Tailwind", "TypeScript"],
     link: "https://github.com/Samelafarias/portfolio"
+  },
+  
+  {
+    title: "Gestus - Gestor de Assinaturas",
+    description: "Sistema de gerenciamento para suas assinaturas, controle seus gastos de modo prático.",
+    image: "/f3.png",
+    category: "Mobile",
+    tags: ["React Native", "TypeScript", "Expo", "Firebase"],
+    link: "https://github.com/Samelafarias/Gestus"
+  },
+    {
+    title: "Mais Saúde - Gerenciador de Clínicas",
+    description: "Uma aplicação web intuitiva e objetiva desenvolvida para otimizar a rotina operacional e gerencial de consultórios médicos, facilitando a gestão de agendamentos, pacientes e fluxo financeiro.",
+    image: "/f10.jpg",
+    category: "Web",
+    tags: ["React", "HTML", "CSS", "Bootstrap", "React Bootstrap", "TypeScript"],
+    link: "https://github.com/Samelafarias/Gerenciamento-de-clinicas"
   },
   {
     title: "Nexus - Gerenciador de Senhas",
