@@ -22,19 +22,19 @@ const projectsData = [
     subtitle: "Sistema de agendamento para barbearias",
     description: "Sistema moderno de gestão de atendimentos em barbearias.",
     image: "/f2.png",
-    link: "#",
+    link: "https://pointdobarbeiro.com.br/cliente/servicos/point-do-barbeiro",
     features: ["Agendamento em Tempo Real", "Painel Administrativo", "Versatilidade", "Acesse de Qualque Lugar, Celular ou PC"],
-    techStack: ["NextJs", "Tailwind", "Python", "TypeScript"]
+    techStack: ["NextJs", "Tailwind", "Python", "TypeScript", "PWA"]
   },
   {
     id: "03",
-    title: "Gestus",
-    subtitle: "Seu gerenciador de assinaturas",
-    description: "Sistema moderno de gestão das suas assinaturas de streamings e afins, de modo muito mais prático.",
-    image: "/f3.png",
-    link: "https://github.com/Samelafarias/Gestus",
+    title: "ReciboFácil",
+    subtitle: "Seu gerador de recibos online",
+    description: "Sistema moderno de gestão e geração de recibos online, substituindo o preenchimento manual de recibos em documentos do Word.",
+    image: "/f9.jpg",
+    link: "https://github.com/Samelafarias/Recibo-sistema",
     features: ["Cronograma de Vencimentos Inteligente", "Notificações Personalizadas", "Dashboard de Gastos", "Painel de Gastos Mensais"],
-    techStack: ["React Native", "TypeScript", "Expo", "Firebase"]
+    techStack: ["Next.js", "TypeScript", "Tailwind", "Python", "Django", "PWA"]
   }
 ];
 
